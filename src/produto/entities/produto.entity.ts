@@ -25,11 +25,24 @@ export class ProdutosEntity {
     @Column({length: 500, nullable: true})
     descricao : string;
 
+    // @Column({nullable:true})
+    //quantidadeEmEstoque: number;
+
+
+
+
+
+
+
+
+
     @ManyToOne(() => CategoriaEntity, (categoria) => categoria.produto, {
         onDelete: "CASCADE"
     })
     categoria: CategoriaEntity
-        // quantidadeEmEstoque: number;  implementação caso sobre tempo
-
+        //   implementação caso sobre tempo
+        // quantidadeComprimido: number; implementação
+        // peso: number 
+        //
 
 }

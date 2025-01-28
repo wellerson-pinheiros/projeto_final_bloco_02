@@ -6,9 +6,7 @@ import { CategoriaService } from "src/categoria/service/categoria.service";
 
 @Injectable()
 export class ProdutoService{
-    findByNome(nome: string): Promise<ProdutosEntity[]> {
-      throw new Error("Method not implemented.");
-    }
+    
     
     constructor(
         @InjectRepository(ProdutosEntity)
