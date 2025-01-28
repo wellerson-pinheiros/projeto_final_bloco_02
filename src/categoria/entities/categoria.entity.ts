@@ -11,9 +11,10 @@ id: number;
 
 @IsNotEmpty()
 @Column({length: 255, nullable: false})
-nomeCategoria: string;
+tipoCategoria: string;
 
-@Column({length: 255, nullable: true})
+@Column({length: 500, nullable: true})
 descricao: string;
+
 
 }
