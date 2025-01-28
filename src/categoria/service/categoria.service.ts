@@ -5,14 +5,18 @@ import { DeleteResult, ILike, Repository } from "typeorm";
 
 @Injectable()
 export class CategoriaService {
-    categoriaService: any;
+    
     constructor(
         @InjectRepository(CategoriaEntity)
         private categoriaRepository: Repository<CategoriaEntity>
     ){}
 
     async findAll(): Promise<CategoriaEntity[]>{
-        return await this.categoriaRepository.find()
+        return await this.categoriaRepository.find({
+            relations:{
+                produto: true
+            }
+        })
     }
 
     async findById(id: number): Promise <CategoriaEntity> {
@@ -21,7 +25,9 @@ export class CategoriaService {
             where: {
                 id
             },
-            
+            relations:{
+                produto: true
+            }
         })
 
         if(!categoria)
@@ -37,7 +43,9 @@ export class CategoriaService {
                 tipoCategoria: ILike(`%${tipoCategoria}%`)
             },
             
-            
+            relations:{
+                produto: true
+            }
         })
     }
 
